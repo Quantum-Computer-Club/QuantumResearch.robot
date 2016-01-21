@@ -3,8 +3,6 @@ from pybrain.utilities           import percentError
 from pybrain.tools.shortcuts     import buildNetwork
 from pybrain.supervised.trainers import BackpropTrainer
 from pybrain.structure.modules   import SoftmaxLayer
-from scipy import diag, arange, meshgrid, where
-from numpy.random import multivariate_normal
 import linecache
 import random
 

@@ -1,7 +1,6 @@
 from sklearn import svm
 import linecache
 import random
-import speaker
 
 ratio = 0.8
 
@@ -43,5 +42,4 @@ for i in range(0, len(predicts)):
     if predicts[i] == y_test[i]:
         truth += 1
 
-speaker.alert_trigger()
 print truth/(len(predicts)+0.0)
