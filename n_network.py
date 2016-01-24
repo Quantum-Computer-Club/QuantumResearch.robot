@@ -6,12 +6,13 @@ from pybrain.structure.modules   import SoftmaxLayer
 import linecache
 import random
 
-samples = linecache.getlines('svm.txt')
+samples = linecache.getlines('svm_sep.txt')
 random.shuffle(samples)
-alldata = ClassificationDataSet(16, 1, nb_classes=2)
+alldata = ClassificationDataSet(len(samples[0])-1, 1, nb_classes=2)
 for sample in samples:
-    sample_array = sample.split('\t')[0:16]
-    sample_result = sample.split('\t')[-1]
+    sample_array_o = sample.split('\t')
+    sample_array = sample_array_o[0:len(sample_array_o)-1]
+    sample_result = sample_array_o[-1]
     for element in range(0, len(sample_array)):
         sample_array[element] = float(sample_array[element])
     sample_result = int(sample_result)
