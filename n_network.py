@@ -6,9 +6,9 @@ from pybrain.structure.modules   import SoftmaxLayer
 import linecache
 import random
 
-samples = linecache.getlines('svm_sep.txt')
+samples = linecache.getlines('svm3b.txt')
 random.shuffle(samples)
-alldata = ClassificationDataSet(len(samples[0])-1, 1, nb_classes=2)
+alldata = ClassificationDataSet(len(samples[0].split('\t'))-1, 1, nb_classes=2)
 for sample in samples:
     sample_array_o = sample.split('\t')
     sample_array = sample_array_o[0:len(sample_array_o)-1]
@@ -28,7 +28,7 @@ print "Input and output dimensions: ", trndata.indim, trndata.outdim
 print "First sample (input, target, class):"
 print trndata['input'][0], trndata['target'][0], trndata['class'][0]
 
-fnn = buildNetwork( trndata.indim, 5, trndata.outdim, outclass=SoftmaxLayer )
+fnn = buildNetwork( trndata.indim, 10, trndata.outdim, outclass=SoftmaxLayer )
 trainer = BackpropTrainer( fnn, dataset=trndata, momentum=0.1, verbose=True, weightdecay=0.01)
 
 for i in range(20):

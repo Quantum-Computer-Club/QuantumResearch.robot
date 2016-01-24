@@ -4,7 +4,7 @@ import random
 
 ratio = 0.8
 
-samples = linecache.getlines('svm5b_unsep.txt')
+samples = linecache.getlines('svm5b_sep.txt')
 random.shuffle(samples)
 train = samples[0:int(len(samples)*ratio)]
 test = samples[int(len(samples)*ratio):len(samples)]
